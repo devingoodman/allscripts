@@ -1,0 +1,29 @@
+
+fixedDelay: 1000
+
+spring:
+
+    application:
+        name: allscripts-service
+
+    datasource:
+        url: jdbc:mysql://localhost:3306/orcahealth?useSSL=false
+        username: root
+        password:
+        driver-class-name: com.mysql.jdbc.Driver
+
+    jpa:
+        hibernate:
+            ddl-auto: none
+
+    cloud:
+        stream:
+            bindings:
+                app1-data-source:
+                    destination: app1-data-in
+                app1-data-sink:
+                    destination: app1-data-out
+
+
+server:
+    port: 4410
